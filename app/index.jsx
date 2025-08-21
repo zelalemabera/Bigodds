@@ -10,7 +10,7 @@ const Home = () => {
       style={styles.background}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Soccer Predictor Pro</Text>
+        <Text style={styles.title}>Win with Today&apos;s Big Odds</Text>
         <Text style={styles.subtitle}>Expert predictions for daily matches</Text>
         
         <View style={styles.buttonContainer}>
@@ -26,25 +26,23 @@ const Home = () => {
           <TouchableOpacity style={[styles.button, styles.predictButton]}>
            <Link href={'/Predictions'}>
             <View style={styles.buttonContent}>
-              <MaterialIcons name="psychology" size={32} color="#4ECDC4" />
+              <MaterialIcons name="sports-soccer" size={32} color="#fff" />
               <View style={styles.buttonTextContainer}>
-                <Text style={styles.buttonText}>Make Predictions</Text>
+                <Text style={styles.buttonText}>View Predictions</Text>
                 <Text style={styles.buttonSubtext}>Predict match outcomes</Text>
               </View>
             </View>
            </Link>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.button, styles.historyButton]}>
-          {/* <Link href={'/explore'}> */}
+           <TouchableOpacity style={[styles.button, styles.rateButton]}>
             <View style={styles.buttonContent}>
-              <FontAwesome name="history" size={32} color="#FFE66D" />
+              <FontAwesome name="star" size={32} color="#FFD700" />
               <View style={styles.buttonTextContainer}>
-                <Text style={styles.buttonText}>My Predictions</Text>
-                <Text style={styles.buttonSubtext}>View prediction history</Text>
+                <Text style={styles.buttonText}>Rate App</Text>
+                <Text style={styles.buttonSubtext}>Share your feedback</Text>
               </View>
             </View>
-            {/* </Link> */}
           </TouchableOpacity>
         </View>
 
