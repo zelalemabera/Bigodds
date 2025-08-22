@@ -1,4 +1,4 @@
-import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import React from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -16,8 +16,8 @@ const Home = () => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={[styles.button, styles.watchButton]}>
             <View style={styles.buttonContent}>
-            <Ionicons name="play" size={32} color="#4c72a1" />              
-              <View style={styles.buttonTextContainer}>
+            <Ionicons name="play" size={32} color="#87CEFA" />              
+               <View style={styles.buttonTextContainer}>
                 <Text style={styles.buttonText}>Watch Adds</Text>
                 <Text style={styles.buttonSubtext}>Stream adds for more predictions</Text>
               </View>
@@ -26,10 +26,9 @@ const Home = () => {
           <TouchableOpacity style={[styles.button, styles.predictButton]}>
            <Link href={'/Predictions'}>
             <View style={styles.buttonContent}>
-              <MaterialIcons name="sports-soccer" size={32} color="#fff" />
-              <View style={styles.buttonTextContainer}>
+              <FontAwesome name="trophy" size={32} color="#4ECDC4" />              <View style={styles.buttonTextContainer}>
                 <Text style={styles.buttonText}>View Predictions</Text>
-                <Text style={styles.buttonSubtext}>Predict match outcomes</Text>
+                <Text style={styles.buttonSubtext}>View match outcome predictions</Text>
               </View>
             </View>
            </Link>

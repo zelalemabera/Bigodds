@@ -10,6 +10,7 @@ const _layout = () => {
 
       <Tabs
         screenOptions={{
+          headerShown: false, // Hides the top navigation bar
           tabBarStyle: {
             backgroundColor: colorScheme === 'dark' ? '#1A1A1A' : '#FFFFFF',
             borderTopWidth: 0,
