@@ -1,0 +1,11 @@
+    {
+      "build": {
+        "preview": {
+          "android": {
+            "buildType": "apk",
+            "gradleCommand": ":app:assembleRelease" // or :app:assembleDebug for a debug APK
+          },
+          "developmentClient": true // Optional: for development builds with expo-dev-client
+        }
+      }
+    }

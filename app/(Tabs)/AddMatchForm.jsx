@@ -17,7 +17,9 @@ const AddMatchForm = () => {
         homePossession: '50',
         awayPossession: '50',
         status: 'FT',
-        isLive: false
+        isLive: false,
+        Tips: '',
+        odds: ''
     });
 
     const theme = {
@@ -32,10 +34,21 @@ const AddMatchForm = () => {
         shadow: isDark ? '#000000' : '#94A3B8'
     };
 
-    const handleSubmit = () => {
-        console.log('Match data:', formData);
-        // Handle form submission here
-        navigation.goBack();
+    const handleSubmit = async () => {
+        console.log('Match data:', formData);//just checking if data is bieng registered in formdat obj....
+        try {
+            const response = await fetch('http://localhost:80/Big-Odds/api/BigOdds.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            // const data = await response.json();
+            navigation.goBack();
+        } catch (error) {
+            console.error('Fetch Error:', error);
+        }
     };
 
     const updatePossession = (team, value) => {
@@ -69,8 +82,8 @@ const AddMatchForm = () => {
                     <View style={[styles.inputContainer, { flex: 1 }]}>
                         <Text style={[styles.label, { color: theme.text }]}>League</Text>
                         <TextInput
-                            style={[styles.input, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.input, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -80,12 +93,12 @@ const AddMatchForm = () => {
                             onChangeText={(text) => setFormData(prev => ({ ...prev, league: text }))}
                         />
                     </View>
-                    
+
                     <View style={[styles.inputContainer, { width: 120 }]}>
                         <Text style={[styles.label, { color: theme.text }]}>Match Time</Text>
                         <TextInput
-                            style={[styles.input, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.input, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -93,6 +106,7 @@ const AddMatchForm = () => {
                             placeholderTextColor={theme.secondaryText}
                             value={formData.matchTime}
                             onChangeText={(text) => setFormData(prev => ({ ...prev, matchTime: text }))}
+                            keyboardType="default"
                         />
                     </View>
                 </View>
@@ -105,8 +119,8 @@ const AddMatchForm = () => {
                             <Text style={styles.logoText}>H</Text>
                         </View>
                         <TextInput
-                            style={[styles.teamInput, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.teamInput, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -128,8 +142,8 @@ const AddMatchForm = () => {
                             <Text style={styles.logoText}>A</Text>
                         </View>
                         <TextInput
-                            style={[styles.teamInput, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.teamInput, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -141,13 +155,46 @@ const AddMatchForm = () => {
                     </View>
                 </View>
 
+                {/* Tips & Odds */}
+                <View style={styles.row}>
+                    <View style={[styles.inputContainer, { flex: 1, width: 120 }]}>
+                        <Text style={[styles.label, { color: theme.text }]}>Tips</Text>
+                        <TextInput
+                            style={[styles.input, {
+                                backgroundColor: theme.inputBackground,
+                                color: theme.text,
+                                borderColor: theme.border
+                            }]}
+                            placeholder="Both Teams Score"
+                            placeholderTextColor={theme.secondaryText}
+                            value={formData.Tips}
+                            onChangeText={(text) => setFormData(prev => ({ ...prev, Tips: text }))}
+                        />
+                    </View>
+
+                    <View style={[styles.inputContainer, { width: 120 }]}>
+                        <Text style={[styles.label, { color: theme.text }]}>Odds</Text>
+                        <TextInput
+                            style={[styles.input, {
+                                backgroundColor: theme.inputBackground,
+                                color: theme.text,
+                                borderColor: theme.border
+                            }]}
+                            placeholder="1.5"
+                            placeholderTextColor={theme.secondaryText}
+                            value={formData.odds}
+                            onChangeText={(text) => setFormData(prev => ({ ...prev, odds: text }))}
+                        />
+                    </View>
+                </View>
+
                 {/* Scores */}
                 <View style={styles.scoresContainer}>
                     <Text style={[styles.label, { color: theme.text }]}>Scores</Text>
                     <View style={styles.scoresRow}>
                         <TextInput
-                            style={[styles.scoreInput, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.scoreInput, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -158,8 +205,8 @@ const AddMatchForm = () => {
                         />
                         <Text style={[styles.colon, { color: theme.secondaryText }]}>:</Text>
                         <TextInput
-                            style={[styles.scoreInput, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.scoreInput, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -178,8 +225,8 @@ const AddMatchForm = () => {
                         <View style={styles.teamPossession}>
                             <Text style={[styles.teamLabel, { color: theme.text }]}>Home</Text>
                             <TextInput
-                                style={[styles.possessionInput, { 
-                                    backgroundColor: theme.inputBackground, 
+                                style={[styles.possessionInput, {
+                                    backgroundColor: theme.inputBackground,
                                     color: theme.text,
                                     borderColor: theme.border
                                 }]}
@@ -189,12 +236,12 @@ const AddMatchForm = () => {
                             />
                             <Text style={[styles.percentage, { color: theme.secondaryText }]}>%</Text>
                         </View>
-                        
+
                         <View style={styles.possessionBarContainer}>
                             <View style={styles.possessionBarBackground}>
-                                <View style={[styles.possessionBarFill, { 
+                                <View style={[styles.possessionBarFill, {
                                     width: `${formData.homePossession}%`,
-                                    backgroundColor: theme.accent 
+                                    backgroundColor: theme.accent
                                 }]} />
                             </View>
                         </View>
@@ -202,8 +249,8 @@ const AddMatchForm = () => {
                         <View style={styles.teamPossession}>
                             <Text style={[styles.teamLabel, { color: theme.text }]}>Away</Text>
                             <TextInput
-                                style={[styles.possessionInput, { 
-                                    backgroundColor: theme.inputBackground, 
+                                style={[styles.possessionInput, {
+                                    backgroundColor: theme.inputBackground,
                                     color: theme.text,
                                     borderColor: theme.border
                                 }]}
@@ -233,10 +280,11 @@ const AddMatchForm = () => {
                         </View>
                     </View>
 
+
                     {!formData.isLive && (
                         <TextInput
-                            style={[styles.statusInput, { 
-                                backgroundColor: theme.inputBackground, 
+                            style={[styles.statusInput, {
+                                backgroundColor: theme.inputBackground,
                                 color: theme.text,
                                 borderColor: theme.border
                             }]}
@@ -248,7 +296,7 @@ const AddMatchForm = () => {
                 </View>
 
                 {/* Submit Button */}
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={[styles.submitButton, { backgroundColor: theme.accent }]}
                     onPress={handleSubmit}
                 >
@@ -265,14 +313,14 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     formCard: {
-        borderRadius: 20,
+        borderRadius: 0,
         padding: 24,
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.2,
         shadowRadius: 12,
         elevation: 8,
         borderWidth: 1,
-        borderColor: 'rgba(255,255,255,0.1)',
+        borderColor: 'rgba(32, 8, 8, 0.29)',
     },
     header: {
         borderBottomWidth: 1,
@@ -287,6 +335,13 @@ const styles = StyleSheet.create({
     subtitle: {
         fontSize: 14,
         fontWeight: '500',
+    },
+    TipsandOdds: {
+        display: 'flex',
+        borderColor: '#ffff',
+        flexDirection: 'row',
+        gap: 16,
+        marginBottom: 24,
     },
     row: {
         flexDirection: 'row',
@@ -315,6 +370,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 24,
+        marginTop: 2,
     },
     teamSection: {
         alignItems: 'center',
@@ -356,6 +412,7 @@ const styles = StyleSheet.create({
     },
     scoresContainer: {
         marginBottom: 24,
+        marginTop: 15,
     },
     scoresRow: {
         flexDirection: 'row',

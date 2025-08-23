@@ -1,7 +1,19 @@
 import useColorTheme from '@/hooks/UseColorTheme';
 import { StyleSheet, Text, View } from 'react-native';
 
-const SoccerMatchPredictions = () => {
+const SoccerMatchPredictions = ({
+    League = 'Premier League',
+    matchTime = '20:00',
+    HomeTeam = 'Team A',
+    AwayTeam = 'Team B',
+    HomeTeamScore = 1,
+    AwayTeamScore = 2,
+    HomePossesion = 55,
+    AwayPossesion = 45,
+    status = 'FT',
+    Tip = 'Over 2.5 Goals',
+    odds = '1.85'
+}) => {
     const colorScheme = useColorTheme();
     const isDark = colorScheme === 'dark';
 
@@ -17,24 +29,28 @@ const SoccerMatchPredictions = () => {
         glow: isDark ? '#6366F1' : '#818CF8'
     };
 
+    function getFirstLetterCapital(str) {
+        if (!str) return '';
+        return str.charAt(0).toUpperCase();
+    }
+
     return (
         <View style={[styles.container, {
             backgroundColor: isDark ? '#2A2A2A' : '#FFFFFF',
             borderColor: theme.border,
             shadowColor: theme.shadow
         }]}>
-            {/* Background gradient layer */}
             <View style={[styles.backgroundGradient, {
                 backgroundColor: isDark ? '#2D2D2D' : '#F1F5F9'
             }]} />
 
             <View style={[styles.header, { borderBottomColor: theme.border }]}>
-                <Text style={[styles.leagueText, { color: theme.text }]}>TURKEY SUPER LEAGUE</Text>
+                <Text style={[styles.leagueText, { color: theme.text }]}>{League}</Text>
                 <View style={[styles.timeIndicator, {
                     backgroundColor: isDark ? '#3B3B3B' : '#F8FAFC',
                     borderColor: isDark ? '#4A4A4A' : '#E2E8F0'
                 }]}>
-                    <Text style={[styles.timeText, { color: theme.secondaryText }]}>23:00</Text>
+                    <Text style={[styles.timeText, { color: theme.secondaryText }]}>{matchTime}</Text>
                 </View>
             </View>
 
@@ -47,15 +63,14 @@ const SoccerMatchPredictions = () => {
                             backgroundColor: theme.accent,
                             borderColor: isDark ? '#818CF8' : '#6366F1'
                         }]}>
-                            <Text style={styles.logoText}>F</Text>
-                            {/* 3D effect layers */}
+                            <Text style={styles.logoText}>{getFirstLetterCapital(HomeTeam)}</Text>
                             <View style={[styles.logoShine, { backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.3)' }]} />
                         </View>
                     </View>
-                    <Text style={[styles.teamName, { color: theme.text }]}>Femtiphilcs</Text>
+                    <Text style={[styles.teamName, { color: theme.text }]}>{HomeTeam}</Text>
                     <View style={styles.possessionContainer}>
-                        <View style={[styles.possessionBar, { width: '62%', backgroundColor: theme.accent }]} />
-                        <Text style={[styles.possession, { color: theme.secondaryText }]}>62%</Text>
+                        <View style={[styles.possessionBar, { width: `${HomePossesion}%`, backgroundColor: theme.accent }]} />
+                        <Text style={[styles.possession, { color: theme.secondaryText }]}>{HomePossesion + '%'}</Text>
                     </View>
                 </View>
 
@@ -64,17 +79,17 @@ const SoccerMatchPredictions = () => {
                         backgroundColor: isDark ? '#333333' : '#F8FAFC',
                         borderColor: isDark ? '#404040' : '#E2E8F0'
                     }]}>
-                        <Text style={[styles.score, { color: theme.text }]}>2</Text>
+                        <Text style={[styles.score, { color: theme.text }]}>{HomeTeamScore}</Text>
                         <View style={[styles.colonContainer, { backgroundColor: isDark ? '#3B3B3B' : '#F1F5F9' }]}>
                             <Text style={[styles.colon, { color: theme.secondaryText }]}>:</Text>
                         </View>
-                        <Text style={[styles.score, { color: theme.text }]}>1</Text>
+                        <Text style={[styles.score, { color: theme.text }]}>{AwayTeamScore}</Text>
                     </View>
                     <View style={[styles.status, {
                         backgroundColor: isDark ? '#3B3B3B' : '#F8FAFC',
                         borderColor: isDark ? '#4A4A4A' : '#E2E8F0'
                     }]}>
-                        <Text style={[styles.statusText, { color: theme.text }]}>FT</Text>
+                        <Text style={[styles.statusText, { color: theme.text }]}>{status}</Text>
                     </View>
                 </View>
 
@@ -86,17 +101,22 @@ const SoccerMatchPredictions = () => {
                             backgroundColor: theme.accentSecondary,
                             borderColor: isDark ? '#F87171' : '#EF4444'
                         }]}>
-                            <Text style={styles.logoText}>K</Text>
-                            {/* 3D effect layers */}
+                            <Text style={styles.logoText}>{getFirstLetterCapital(AwayTeam)}</Text>
                             <View style={[styles.logoShine, { backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.3)' }]} />
                         </View>
                     </View>
-                    <Text style={[styles.teamName, { color: theme.text }]}>Kompanion</Text>
+                    <Text style={[styles.teamName, { color: theme.text }]}>{AwayTeam}</Text>
                     <View style={styles.possessionContainer}>
-                        <View style={[styles.possessionBar, { width: '38%', backgroundColor: theme.accentSecondary }]} />
-                        <Text style={[styles.possession, { color: theme.secondaryText }]}>38%</Text>
+                        <View style={[styles.possessionBar, { width: `${AwayPossesion}%`, backgroundColor: theme.accentSecondary }]} />
+                        <Text style={[styles.possession, { color: theme.secondaryText }]}>{AwayPossesion + '%'}</Text>
                     </View>
                 </View>
+            </View>
+
+            {/* Tips and Odds Section */}
+            <View style={styles.tipsOddsContainer}>
+                <Text style={styles.tipText}>{Tip}</Text>
+                <Text style={styles.oddsText}>{odds}</Text>
             </View>
         </View>
     );
@@ -276,7 +296,32 @@ const styles = StyleSheet.create({
         fontSize: 9,
         fontWeight: '800',
         textTransform: 'uppercase',
-    }
+    },
+    tipsOddsContainer: {
+        marginTop: 8,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        paddingVertical: 4,
+        borderTopWidth: 0.5,
+        borderTopColor: '#e2e8f05a',
+    },
+    tipText: {
+        fontSize: 14,
+        fontWeight: '700',
+        color: '#49e546ff',
+        textAlign: 'center',
+        width: '100%',
+        marginLeft:22
+    },
+    oddsText: {
+        fontSize: 16,
+        fontWeight: '900',
+        color: '#EF4444',
+        backgroundColor: '#E2E8F0',
+        padding: 4,
+        borderRadius: 0,
+    },
 });
 
 export default SoccerMatchPredictions;

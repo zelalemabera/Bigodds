@@ -1,49 +1,26 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
 
-class Database {
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $database = "big odds";
-    private $connection;
+class Connection {
+    
+    private $host = 'localhost';
+    private $db = 'big odds'; 
+    private $user = 'root';             
+    private $pass = '';                 
+    private $conn;
 
+    // Constructor to create a connection
     public function __construct() {
-        try {
-            $this->connection = new PDO(
-                "mysql:host=$this->host;dbname=$this->database",
-                $this->username,
-                $this->password
-            );
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+        $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db);
+        
+    
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
     }
-
     public function getConnection() {
-        return $this->connection;
-    }
-
-    public function query($sql) {
-        return $this->connection->query($sql);
-    }
-
-    public function prepare($sql) {
-        return $this->connection->prepare($sql);
-    }
-
-    public function __destruct() {
-        $this->connection = null;
+        return $this->conn;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
+?>
