@@ -1,38 +1,64 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 const LoadingScreen = () => {
   return (
-    <View style={styles.container}>
-      {/* Branding can go here */}
-      <Text style={styles.title}>Big Odds</Text>
-      
-      {/* The Spinner */}
-      <ActivityIndicator size="large" color="#FF3B30" /> {/* Use your app's theme color */}
-      
-      {/* Helpful Text */}
-      <Text style={styles.text}>Loading today&apos;s predictions...</Text>
-    </View>
+    <ImageBackground
+      source={require('@/assets/images/Bg.jpg')}
+      style={[styles.background, { flex: 10 }]} // Use the background style and combine with flex
+      blurRadius={2}
+      resizeMode="cover" // Add resizeMode
+    >
+      <View style={styles.container}>
+        {/* Branding can go here */}
+        <Text style={styles.title}>Big Odds</Text>
+        
+        {/* The Spinner */}
+        <View style={styles.spinnerContainer}>
+          <ActivityIndicator size="large" color="#67ff30ff" />
+        </View>
+        
+        {/* Helpful Text */}
+        <Text style={styles.text}>Loading today&apos;s predictions...</Text>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center', 
     alignItems: 'center',
-    backgroundColor: '#FFFFFF', // or a dark theme '#121212'
+    backgroundColor: 'rgba(0,0,0,0.6)', // Semi-transparent overlay
+  },
+  spinnerContainer: {
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255,255,255,0.1)',
   },
   title: {
-    fontSize: 32,
+    fontSize: 42,
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#000', // or '#FFF' for dark mode
+    marginBottom: 30,
+    color: '#FFF',
+    textShadowColor: 'rgba(0,0,0,0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
   },
   text: {
-    marginTop: 10,
-    fontSize: 16,
-    color: '#666', // or '#AAA' for dark mode
+    marginTop: 20,
+    fontSize: 18,
+    color: '#FFF',
+    fontWeight: '500',
+    textShadowColor: 'rgba(0,0,0,0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
   },
 });
 

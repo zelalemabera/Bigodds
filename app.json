@@ -29,7 +29,7 @@
       [
         "expo-splash-screen",
         {
-          "image": ".assets/images/Qatar’s Al Thumama Stadium is one of the most….jpg",
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
@@ -44,6 +44,10 @@
       "eas": {
         "projectId": "2b5c11dd-2b46-4fc4-8c4b-a08b9509d84d"
       }
-    }
+    },
+    "owner": "tsedex"
+  },
+   "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-9846851270242418~2367044311",
   }
 }

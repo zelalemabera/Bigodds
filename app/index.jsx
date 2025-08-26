@@ -1,20 +1,25 @@
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import 'expo-dev-client';
 import { Link } from 'expo-router';
-import React from 'react';
+import { default as React } from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+
 const Home = () => {
+
+
+
   return (
-    <ImageBackground 
+    <ImageBackground
       source={require('@/assets/images/Bg.jpg')}
       style={styles.background}
     >
       <View style={styles.container}>
         <Text style={styles.title}>Win with Today&apos;s Big Odds</Text>
         <Text style={styles.subtitle}>Expert predictions for daily matches</Text>
-        
+
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={[styles.button, styles.watchButton]}>
+          {/* <TouchableOpacity style={[styles.button, styles.watchButton]}>
             <View style={styles.buttonContent}>
             <Ionicons name="play" size={32} color="#87CEFA" />              
                <View style={styles.buttonTextContainer}>
@@ -22,19 +27,20 @@ const Home = () => {
                 <Text style={styles.buttonSubtext}>Stream adds for more predictions</Text>
               </View>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity style={[styles.button, styles.predictButton]}>
-           <Link href={'/Predictions'}>
-            <View style={styles.buttonContent}>
-              <FontAwesome name="trophy" size={32} color="#4ECDC4" />              <View style={styles.buttonTextContainer}>
-                <Text style={styles.buttonText}>View Predictions</Text>
-                <Text style={styles.buttonSubtext}>View match outcome predictions</Text>
+            <Link href={'/Predictions'}>
+              <View style={styles.buttonContent}>
+                <FontAwesome name="trophy" size={32} color="#4ECDC4" />
+                <View style={styles.buttonTextContainer}>
+                  <Text style={styles.buttonText}>View Predictions</Text>
+                  <Text style={styles.buttonSubtext}>View match outcome predictions</Text>
+                </View>
               </View>
-            </View>
-           </Link>
+            </Link>
           </TouchableOpacity>
 
-           <TouchableOpacity style={[styles.button, styles.rateButton]}>
+          <TouchableOpacity style={[styles.button, styles.rateButton]}>
             <View style={styles.buttonContent}>
               <FontAwesome name="star" size={32} color="#FFD700" />
               <View style={styles.buttonTextContainer}>
@@ -113,11 +119,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 20,
     elevation: 10,
-    backdropFilter: 'blur(10px)', 
+    backdropFilter: 'blur(10px)',
   },
   watchButton: {
     borderWidth: 1,
-    borderColor: 'rgba(135, 206, 250, 0.3)',
+    borderColor: 'rgba(135, 250, 148, 0.3)',
     shadowColor: '#87CEFA',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.2,
