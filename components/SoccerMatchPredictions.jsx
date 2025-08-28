@@ -297,31 +297,36 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         textTransform: 'uppercase',
     },
-    tipsOddsContainer: {
-        marginTop: 8,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        paddingVertical: 4,
-        borderTopWidth: 0.5,
-        borderTopColor: '#e2e8f05a',
-    },
-    tipText: {
-        fontSize: 14,
-        fontWeight: '700',
-        color: '#49e546ff',
-        textAlign: 'center',
-        width: '100%',
-        marginLeft:22
-    },
-    oddsText: {
-        fontSize: 16,
-        fontWeight: '900',
-        color: '#EF4444',
-        backgroundColor: '#E2E8F0',
-        padding: 4,
-        borderRadius: 0,
-    },
+   tipsOddsContainer: {
+    marginTop: 8,
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderTopWidth: 0.5,
+    borderTopColor: '#e2e8f05a',
+    width: '100%',
+    flexWrap: 'wrap',
+    gap: 8
+  },
+  tipText: {
+    fontSize: 14,
+    fontWeight: '700', 
+    color: '#49e546ff',
+    flex: 1,
+    flexShrink: 1
+  },
+  oddsText: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#EF4444',
+    backgroundColor: '#E2E8F0',
+    padding: 4,
+    borderRadius: 0,
+    minWidth: 50,
+    textAlign: 'center'
+  }
 });
 
 export default SoccerMatchPredictions;

@@ -2,18 +2,30 @@ import LoadingScreen from '@/components/Loading'
 import SoccerMatchPredictions from '@/components/SoccerMatchPredictions'
 import { useNavigation } from '@react-navigation/native'
 import { ImageBackground } from 'expo-image'
-import React, { useEffect, useState } from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
+import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native'
+
+import { BannerAd, BannerAdSize, TestIds, useForeground } from 'react-native-google-mobile-ads'
+
+const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-9846851270242418/8340629564';
 
 const PredictionsScreen = () => {
   const [prediction, setPrediction] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigation = useNavigation();
 
+  const bannerRef = useRef(null);
+
+  // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
+  // Therefore it's advised to "manually" request a new ad when the app is foregrounded (https://groups.google.com/g/google-admob-ads-sdk/c/rwBpqOUr8m8).
+  useForeground(() => {
+    Platform.OS === 'ios' && bannerRef.current?.load();
+  });
+
   useEffect(() => {
     const fetchPredictions = async () => {
       try {
-        const response = await fetch('http://localhost:80/Big-Odds/api/BigOdds.php', {
+        const response = await fetch('http://10.0.2.2:80/Big-Odds/api/BigOdds.php', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -25,7 +37,7 @@ const PredictionsScreen = () => {
         setPrediction(Array.isArray(data.data) ? data.data : []);
       } catch (error) {
         console.error('Predictions Fetch Error:', error);
-        setPrediction([]); 
+        setPrediction([]);
       } finally {
         setIsLoading(false);
       }
@@ -34,55 +46,52 @@ const PredictionsScreen = () => {
   }, []);
 
   return (
-    <ImageBackground
-      source={require('@/assets/images/Bg.jpg')}
-      style={{ flex: 1 }}
-      blurRadius={2}
-    >
-      <View style={styles.headerContainer}>
-        <Text style={styles.header}>Today&apos;s Predictions</Text>
-      </View>
-
-      {isLoading ? (
-       <LoadingScreen/>
-      ) : !Array.isArray(prediction) || prediction.length === 0 ? (
-        <View style={styles.centerContainer}>
-          <Text style={styles.noDataText}>No predictions available for today</Text>
+    <>
+      <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
+      <ImageBackground
+        source={require('@/assets/images/Bg.jpg')}
+        style={{ flex: 1 }}
+        blurRadius={2}
+      >
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>Today&apos;s Predictions</Text>
         </View>
-      ) : (
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          <View style={styles.predictionsContainer}>
-            {prediction.map((Match) => (
-              <SoccerMatchPredictions
-                HomeTeam={Match.home_team}
-                League={Match.League}
-                matchTime={Match.created_at}
-                AwayTeam={Match.away_team}
-                HomePossesion={Match.Home_Possesion}
-                AwayPossesion={Match.Away_Possesion}
-                odds={Match.odds}
-                Tip={Match.Tips}
-                status={Match.Mtch_Status}
-                HomeTeamScore={Match.Home_Team_Score}
-                AwayTeamScore={Match.Away_Team_Score}
-                key={Match.id}
-              />
-            ))}
+
+        {isLoading ? (
+          <LoadingScreen />
+        ) : !Array.isArray(prediction) || prediction.length === 0 ? (
+          <View style={styles.centerContainer}>
+            <Text style={styles.noDataText}>No predictions available for today</Text>
           </View>
-        </ScrollView>
-        
-      )}
-        {/* <TouchableOpacity 
-          style={styles.homeButton}
-          onPress={() => navigation.navigate('index')}
-        >
-          <Text style={styles.homeButtonText}>🏠</Text>
-        </TouchableOpacity> */}
-    </ImageBackground>
+        ) : (
+          <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={styles.scrollContent}
+            showsVerticalScrollIndicator={false}
+          >
+            <View style={styles.predictionsContainer}>
+              {prediction.map((Match) => (
+                <SoccerMatchPredictions
+                  HomeTeam={Match.home_team}
+                  League={Match.League}
+                  matchTime={Match.created_at}
+                  AwayTeam={Match.away_team}
+                  HomePossesion={Match.Home_Possesion}
+                  AwayPossesion={Match.Away_Possesion}
+                  odds={Match.odds}
+                  Tip={Match.Tips}
+                  status={Match.Mtch_Status}
+                  HomeTeamScore={Match.Home_Team_Score}
+                  AwayTeamScore={Match.Away_Team_Score}
+                  key={Match.id}
+                />
+              ))}
+            </View>
+          </ScrollView>
+
+        )}
+      </ImageBackground>
+    </>
   )
 }
 
@@ -114,12 +123,12 @@ const styles = StyleSheet.create({
     padding: 16,
     overflow: 'hidden',
     marginHorizontal: 10,
-    marginLeft:25,
+    marginLeft: 25,
     flex: 1,
   },
   homeButton: {
     position: 'absolute',
-    left:27,
+    left: 27,
     top: 27,
     backgroundColor: 'rgba(0, 0, 0, 0)',
     padding: 12,

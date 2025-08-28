@@ -1,13 +1,20 @@
+import Popup from '@/components/Popup';
 import { FontAwesome } from '@expo/vector-icons';
 import 'expo-dev-client';
-import { Link } from 'expo-router';
-import { default as React } from 'react';
+import { default as React, useEffect, useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
 
 const Home = () => {
 
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsPopupVisible(true);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <ImageBackground
@@ -15,32 +22,25 @@ const Home = () => {
       style={styles.background}
     >
       <View style={styles.container}>
+        {isPopupVisible ?
+          (<Popup onClose={() => { setIsPopupVisible(false) }} />) : null
+        }
         <Text style={styles.title}>Win with Today&apos;s Big Odds</Text>
         <Text style={styles.subtitle}>Expert predictions for daily matches</Text>
 
         <View style={styles.buttonContainer}>
-          {/* <TouchableOpacity style={[styles.button, styles.watchButton]}>
+          <TouchableOpacity style={[styles.button, styles.predictButton]} onPress={() => setIsPopupVisible(true)} >
             <View style={styles.buttonContent}>
-            <Ionicons name="play" size={32} color="#87CEFA" />              
-               <View style={styles.buttonTextContainer}>
-                <Text style={styles.buttonText}>Watch Adds</Text>
-                <Text style={styles.buttonSubtext}>Stream adds for more predictions</Text>
+              <FontAwesome name="trophy" size={32} color="#4ECDC4" />
+              <View style={styles.buttonTextContainer}>
+                <Text style={styles.buttonText}>View Predictions</Text>
+                <Text style={styles.buttonSubtext}>View match outcome predictions</Text>
               </View>
             </View>
-          </TouchableOpacity> */}
-          <TouchableOpacity style={[styles.button, styles.predictButton]}>
-            <Link href={'/Predictions'}>
-              <View style={styles.buttonContent}>
-                <FontAwesome name="trophy" size={32} color="#4ECDC4" />
-                <View style={styles.buttonTextContainer}>
-                  <Text style={styles.buttonText}>View Predictions</Text>
-                  <Text style={styles.buttonSubtext}>View match outcome predictions</Text>
-                </View>
-              </View>
-            </Link>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.button, styles.rateButton]}>
+
+          <TouchableOpacity style={[styles.button, styles.rateButton]}>           
             <View style={styles.buttonContent}>
               <FontAwesome name="star" size={32} color="#FFD700" />
               <View style={styles.buttonTextContainer}>
