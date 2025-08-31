@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from 'react-native';
-import { RewardedAd, RewardedAdEventType, TestIds } from 'react-native-google-mobile-ads';
+import { useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
+import {
+  AdEventType,
+  InterstitialAd,
+  TestIds,
+} from 'react-native-google-mobile-ads';
 
-const adUnitId = __DEV__ ? TestIds.REWARDED : 'ca-app-pub-9846851270242418~2367044311';
+const adUnitId = __DEV__ 
+  ? TestIds.INTERSTITIAL
+  : 'ca-app-pub-9846851270242418/8861639209';
 
-const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
   keywords: ['fashion', 'clothing'],
 });
 
@@ -12,38 +18,26 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
-      setLoaded(true);
-    });
-    const unsubscribeEarned = rewarded.addAdEventListener(
-      RewardedAdEventType.EARNED_REWARD,
-      reward => {
-        console.log('User earned reward of ', reward);
+    const unsubscribeLoaded = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setLoaded(true);
+        interstitial.show(); // Show ad immediately when loaded
       },
     );
 
-    // Start loading the rewarded ad straight away
-    rewarded.load();
+    // Start loading the interstitial straight away
+    interstitial.load();
 
     // Unsubscribe from events on unmount
     return () => {
       unsubscribeLoaded();
-      unsubscribeEarned();
     };
   }, []);
 
-  // No advert ready to show yet
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <Button
-      title="Show Rewarded Ad"
-      onPress={() => {
-        rewarded.show();
-      }}
-    />
-  );
+  return( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <Text>Interstitial Ad Example</Text>
+    {!loaded && <Text>Loading Ad...</Text>}
+  </View>);
 }
 export default App;

@@ -1,26 +1,26 @@
 import LoadingScreen from '@/components/Loading'
 import SoccerMatchPredictions from '@/components/SoccerMatchPredictions'
-import { useNavigation } from '@react-navigation/native'
 import { ImageBackground } from 'expo-image'
 import React, { useEffect, useRef, useState } from 'react'
-import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { AppOpenAd, BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
 
-import { BannerAd, BannerAdSize, TestIds, useForeground } from 'react-native-google-mobile-ads'
 
+
+const AppadUnitId = __DEV__ ? TestIds.APP_OPEN : 'ca-app-pub-9846851270242418/8293296017';
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-9846851270242418/8340629564';
+
+// Create app open ad instance outside component
+const appOpenAd = AppOpenAd.createForAdRequest(AppadUnitId, {
+  keywords: ['fashion', 'clothing'],
+});
 
 const PredictionsScreen = () => {
   const [prediction, setPrediction] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const navigation = useNavigation();
 
   const bannerRef = useRef(null);
 
-  // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
-  // Therefore it's advised to "manually" request a new ad when the app is foregrounded (https://groups.google.com/g/google-admob-ads-sdk/c/rwBpqOUr8m8).
-  useForeground(() => {
-    Platform.OS === 'ios' && bannerRef.current?.load();
-  });
 
   useEffect(() => {
     const fetchPredictions = async () => {
@@ -33,7 +33,6 @@ const PredictionsScreen = () => {
         });
         const data = await response.json();
         console.log('Predictions Fetch Success:', data);
-        // Ensuring prediction is always an array
         setPrediction(Array.isArray(data.data) ? data.data : []);
       } catch (error) {
         console.error('Predictions Fetch Error:', error);
@@ -47,7 +46,6 @@ const PredictionsScreen = () => {
 
   return (
     <>
-      <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
       <ImageBackground
         source={require('@/assets/images/Bg.jpg')}
         style={{ flex: 1 }}
@@ -61,7 +59,7 @@ const PredictionsScreen = () => {
           <LoadingScreen />
         ) : !Array.isArray(prediction) || prediction.length === 0 ? (
           <View style={styles.centerContainer}>
-            <Text style={styles.noDataText}>No predictions available for today</Text>
+            <Text style={styles.noDataText}>No predictions available for today bruh!!</Text>
           </View>
         ) : (
           <ScrollView
@@ -88,9 +86,9 @@ const PredictionsScreen = () => {
               ))}
             </View>
           </ScrollView>
-
         )}
-      </ImageBackground>
+      <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
+       </ImageBackground>
     </>
   )
 }

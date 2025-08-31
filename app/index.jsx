@@ -1,6 +1,7 @@
 import Popup from '@/components/Popup';
 import { FontAwesome } from '@expo/vector-icons';
 import 'expo-dev-client';
+import { Link } from 'expo-router';
 import { default as React, useEffect, useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -40,6 +41,7 @@ const Home = () => {
           </TouchableOpacity>
 
 
+              <Link href={'/Add'}>
           <TouchableOpacity style={[styles.button, styles.rateButton]}>           
             <View style={styles.buttonContent}>
               <FontAwesome name="star" size={32} color="#FFD700" />
@@ -49,6 +51,7 @@ const Home = () => {
               </View>
             </View>
           </TouchableOpacity>
+            </Link>
         </View>
 
         <View style={styles.statsContainer}>

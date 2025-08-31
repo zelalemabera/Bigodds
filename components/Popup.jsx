@@ -1,9 +1,37 @@
 import { FontAwesome } from '@expo/vector-icons';
-import { navigate } from 'expo-router/build/global-state/routing';
-import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { RewardedAd, RewardedAdEventType, TestIds } from 'react-native-google-mobile-ads';
 
 const PredictionPopup = ({ onClose }) => {
+  const [showReward, setShowReward] = useState(false);
+  const navigation = useNavigation();
+
+  const handleWatchAd = async () => {
+    try {
+      const rewarded = RewardedAd.createForAdRequest(TestIds.REWARDED, {
+        requestNonPersonalizedAdsOnly: true,
+        keywords: ['sports', 'games'],
+      });
+
+      rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
+        rewarded.show();
+      });
+
+      rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
+        setShowReward(true);
+        navigation.navigate('Predictions');
+      });
+
+      rewarded.load();
+
+    } catch (error) {
+      console.log('Error showing rewarded ad:', error);
+      // Handle error case
+    }
+  };
+
   return (
     <Modal
       animationType="fade"
@@ -21,17 +49,35 @@ const PredictionPopup = ({ onClose }) => {
 
             <Text style={styles.title}>Match Predictions</Text>
 
-            <Text style={styles.message}>
-              Watch a short ad to unlock expert predictions for today&apos;s matches!
-            </Text>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => { navigate('/Predictions'); onClose(); }}
-              activeOpacity={0.8}
-            >
-              <FontAwesome name="play" size={24} color="white" />
-              <Text style={styles.buttonText}>Watch Ad</Text>
-            </TouchableOpacity>
+            {!showReward ? (
+              <>
+                <Text style={styles.message}>
+                  Watch a short ad to unlock expert predictions for today&apos;s matches!
+                </Text>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={handleWatchAd}
+                  activeOpacity={0.8}
+                >
+                  <FontAwesome name="play" size={24} color="white" />
+                  <Text style={styles.buttonText}>Watch Ad</Text>
+                </TouchableOpacity>
+              </>
+            ) : (
+              <>
+                <Text style={styles.message}>
+                  Congratulations!you can now view predictions:
+                </Text>
+
+                <TouchableOpacity
+                  style={[styles.button, styles.closeBtn]}
+                  onPress={onClose}
+                  activeOpacity={0.8}
+                >
+                  <Text style={styles.buttonText}>Close</Text>
+                </TouchableOpacity>
+              </>
+            )}
           </View>
         </View>
       </View>
@@ -85,6 +131,11 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'center',
   },
+  reward: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#4CAF50'
+  },
   button: {
     backgroundColor: '#4CAF50',
     paddingVertical: 14,
@@ -103,6 +154,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
+  },
+  closeBtn: {
+    backgroundColor: '#666'
   },
   buttonText: {
     color: 'white',
