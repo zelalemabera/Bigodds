@@ -11,3 +11,26 @@ index 6e70fdd..777cf95 100644
      }
    }
  
+diff --git a/node_modules/react-native-google-mobile-ads/src/specs/modules/NativeGoogleMobileAdsNativeModule.ts b/node_modules/react-native-google-mobile-ads/src/specs/modules/NativeGoogleMobileAdsNativeModule.ts
+index 3446872..2edbf2b 100644
+--- a/node_modules/react-native-google-mobile-ads/src/specs/modules/NativeGoogleMobileAdsNativeModule.ts
++++ b/node_modules/react-native-google-mobile-ads/src/specs/modules/NativeGoogleMobileAdsNativeModule.ts
+@@ -20,8 +20,7 @@ import { TurboModuleRegistry } from 'react-native';
+ import type {
+   Double,
+   Float,
+-  UnsafeObject,
+-  EventEmitter,
++  UnsafeObject
+ } from 'react-native/Libraries/Types/CodegenTypes';
+ 
+ export type NativeAdProps = {
+@@ -64,7 +63,7 @@ export type NativeAdPaidEventPayload = {
+ export interface Spec extends TurboModule {
+   load(adUnitId: string, requestOptions: UnsafeObject): Promise<NativeAdProps>;
+   destroy(responseId: string): void;
+-  readonly onAdEvent: EventEmitter<NativeAdEventPayload>;
++ // readonly onAdEvent: EventEmitter<NativeAdEventPayload>;
+ }
+ 
+ export default TurboModuleRegistry.getEnforcing<Spec>('RNGoogleMobileAdsNativeModule');
