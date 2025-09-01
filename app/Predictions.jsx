@@ -1,5 +1,6 @@
 import LoadingScreen from '@/components/Loading'
 import SoccerMatchPredictions from '@/components/SoccerMatchPredictions'
+import { supabase } from '@/services/supaBaseClient'
 import { ImageBackground } from 'expo-image'
 import React, { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
@@ -22,27 +23,36 @@ const PredictionsScreen = () => {
   const bannerRef = useRef(null);
 
 
-  useEffect(() => {
-    const fetchPredictions = async () => {
-      try {
-        const response = await fetch('http://10.0.2.2:80/Big-Odds/api/BigOdds.php', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        const data = await response.json();
-        console.log('Predictions Fetch Success:', data);
-        setPrediction(Array.isArray(data.data) ? data.data : []);
-      } catch (error) {
-        console.error('Predictions Fetch Error:', error);
+
+
+useEffect(() => {
+  const fetchPredictions = async () => {
+    try {
+      // Fetch predictions from Supabase
+      const { data, error } = await supabase
+        .from('predictions') // Your table name
+        .select('*') // Select all columns
+        .order('Posted_At', { ascending: false }); // Order by most recent first
+
+      if (error) {
+        console.error('Supabase Fetch Error:', error);
         setPrediction([]);
-      } finally {
-        setIsLoading(false);
+        return;
       }
-    };
-    fetchPredictions();
-  }, []);
+
+      console.log('Predictions Fetch Success:', data);
+      setPrediction(Array.isArray(data) ? data : []);
+      
+    } catch (error) {
+      console.error('Unexpected Fetch Error:', error);
+      setPrediction([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  fetchPredictions();
+}, []);
 
   return (
     <>
@@ -59,7 +69,7 @@ const PredictionsScreen = () => {
           <LoadingScreen />
         ) : !Array.isArray(prediction) || prediction.length === 0 ? (
           <View style={styles.centerContainer}>
-            <Text style={styles.noDataText}>No predictions available for today bruh!!</Text>
+            <Text style={styles.noDataText}>No predictions available for today </Text>
           </View>
         ) : (
           <ScrollView
@@ -71,7 +81,7 @@ const PredictionsScreen = () => {
               {prediction.map((Match) => (
                 <SoccerMatchPredictions
                   HomeTeam={Match.home_team}
-                  League={Match.League}
+                  League={Match.league}
                   matchTime={Match.created_at}
                   AwayTeam={Match.away_team}
                   HomePossesion={Match.Home_Possesion}

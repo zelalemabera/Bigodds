@@ -12,7 +12,7 @@ const PredictionPopup = ({ onClose }) => {
     try {
       const rewarded = RewardedAd.createForAdRequest(TestIds.REWARDED, {
         requestNonPersonalizedAdsOnly: true,
-        keywords: ['sports', 'games'],
+        keywords: ['sports', 'games','food','clothing'],
       });
 
       rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
