@@ -12,12 +12,12 @@ const LoadingScreen = () => {
       <View style={styles.container}>
         {/* Branding can go here */}
         <Text style={styles.title}>Big Odds</Text>
-        
+
         {/* The Spinner */}
         <View style={styles.spinnerContainer}>
           <ActivityIndicator size="large" color="#67ff30ff" />
         </View>
-        
+
         {/* Helpful Text */}
         <Text style={styles.text}>Loading today&apos;s predictions...</Text>
       </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center', 
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.6)', // Semi-transparent overlay
   },
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     color: '#FFF',
     textShadowColor: 'rgba(0,0,0,0.75)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10
   },
   text: {
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: '500',
     textShadowColor: 'rgba(0,0,0,0.75)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10
   },
 });

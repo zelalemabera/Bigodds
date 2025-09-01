@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-google-mobile-ads/android/src/main/java/io/invertase/googlemobileads/ReactNativeGoogleMobileAdsNativeModule.kt b/node_modules/react-native-google-mobile-ads/android/src/main/java/io/invertase/googlemobileads/ReactNativeGoogleMobileAdsNativeModule.kt
+index 6e70fdd..777cf95 100644
+--- a/node_modules/react-native-google-mobile-ads/android/src/main/java/io/invertase/googlemobileads/ReactNativeGoogleMobileAdsNativeModule.kt
++++ b/node_modules/react-native-google-mobile-ads/android/src/main/java/io/invertase/googlemobileads/ReactNativeGoogleMobileAdsNativeModule.kt
+@@ -211,7 +211,7 @@ class ReactNativeGoogleMobileAdsNativeModule(
+       }
+       payload.putString("responseId", nativeAd.responseInfo?.responseId)
+       payload.putString("type", type)
+-      this@ReactNativeGoogleMobileAdsNativeModule.emitOnAdEvent(payload)
++    //  this@ReactNativeGoogleMobileAdsNativeModule.emitOnAdEvent(payload)
+     }
+   }
+ 
