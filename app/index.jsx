@@ -1,21 +1,37 @@
 import Popup from '@/components/Popup';
 import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import 'expo-dev-client';
 import { Link } from 'expo-router';
 import { default as React, useEffect, useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+
 const Home = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [lastPopupTime, setLastPopupTime] = useState(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsPopupVisible(true);
+      setLastPopupTime(Date.now());
     }, 2000);
 
     return () => clearTimeout(timeout);
   }, []);
+
+  const handlePredictPress = () => {
+    const now = Date.now();
+    if (!lastPopupTime || now - lastPopupTime > 180000) { // 3 minutes in milliseconds
+      setIsPopupVisible(true);
+      setLastPopupTime(now);
+    } else {
+      // Navigate to predictions if less than 3 minutes
+      navigation.navigate('Predictions');
+    }
+  };
 
   return (
     <ImageBackground
@@ -30,7 +46,7 @@ const Home = () => {
         <Text style={styles.subtitle}>Expert predictions for daily matches</Text>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={[styles.button, styles.predictButton]} onPress={() => setIsPopupVisible(true)} >
+          <TouchableOpacity style={[styles.button, styles.predictButton]} onPress={handlePredictPress} >
             <View style={styles.buttonContent}>
               <FontAwesome name="trophy" size={32} color="#4ECDC4" />
               <View style={styles.buttonTextContainer}>
@@ -40,18 +56,17 @@ const Home = () => {
             </View>
           </TouchableOpacity>
 
-
-              <Link href={'/Add'}>
-          <TouchableOpacity style={[styles.button, styles.rateButton]}>           
-            <View style={styles.buttonContent}>
-              <FontAwesome name="star" size={32} color="#FFD700" />
-              <View style={styles.buttonTextContainer}>
-                <Text style={styles.buttonText}>Rate App</Text>
-                <Text style={styles.buttonSubtext}>Share your feedback</Text>
+          <Link href={'/Add'}>
+            <TouchableOpacity style={[styles.button, styles.rateButton]}>
+              <View style={styles.buttonContent}>
+                <FontAwesome name="star" size={32} color="#FFD700" />
+                <View style={styles.buttonTextContainer}>
+                  <Text style={styles.buttonText}>Rate App</Text>
+                  <Text style={styles.buttonSubtext}>Share your feedback</Text>
+                </View>
               </View>
-            </View>
-          </TouchableOpacity>
-            </Link>
+            </TouchableOpacity>
+          </Link>
         </View>
 
         <View style={styles.statsContainer}>

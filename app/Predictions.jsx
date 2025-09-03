@@ -4,17 +4,11 @@ import { supabase } from '@/services/supaBaseClient'
 import { ImageBackground } from 'expo-image'
 import React, { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import { AppOpenAd, BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
 
 
-
-const AppadUnitId = __DEV__ ? TestIds.APP_OPEN : 'ca-app-pub-9846851270242418/8293296017';
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-9846851270242418/8340629564';
 
-// Create app open ad instance outside component
-const appOpenAd = AppOpenAd.createForAdRequest(AppadUnitId, {
-  keywords: ['fashion', 'clothing'],
-});
 
 const PredictionsScreen = () => {
   const [prediction, setPrediction] = useState([]);
@@ -25,34 +19,34 @@ const PredictionsScreen = () => {
 
 
 
-useEffect(() => {
-  const fetchPredictions = async () => {
-    try {
-      // Fetch predictions from Supabase
-      const { data, error } = await supabase
-        .from('predictions') // Your table name
-        .select('*') // Select all columns
-        .order('Posted_At', { ascending: false }); // Order by most recent first
+  useEffect(() => {
+    const fetchPredictions = async () => {
+      try {
+        // Fetching predictions from Supabase
+        const { data, error } = await supabase
+          .from('predictions')
+          .select('*')
+          .order('Posted_At', { ascending: false }); // Ordering by most recent first
 
-      if (error) {
-        console.error('Supabase Fetch Error:', error);
+        if (error) {
+          console.error('Supabase Fetch Error:', error);
+          setPrediction([]);
+          return;
+        }
+
+        console.log('Predictions Fetch Success:', data);
+        setPrediction(Array.isArray(data) ? data : []);
+
+      } catch (error) {
+        console.error('Unexpected Fetch Error:', error);
         setPrediction([]);
-        return;
+      } finally {
+        setIsLoading(false);
       }
+    };
 
-      console.log('Predictions Fetch Success:', data);
-      setPrediction(Array.isArray(data) ? data : []);
-      
-    } catch (error) {
-      console.error('Unexpected Fetch Error:', error);
-      setPrediction([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  fetchPredictions();
-}, []);
+    fetchPredictions();
+  }, []);
 
   return (
     <>
@@ -97,8 +91,8 @@ useEffect(() => {
             </View>
           </ScrollView>
         )}
-      <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
-       </ImageBackground>
+        <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
+      </ImageBackground>
     </>
   )
 }
