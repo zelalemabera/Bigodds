@@ -1,11 +1,11 @@
 import React from 'react';
 import { ActivityIndicator, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-const LoadingScreen = () => {
+const LoadingScreen = ({screenName}) => {
   return (
     <ImageBackground
       source={require('@/assets/images/Bg.jpg')}
-      style={[styles.background, { flex: 10 }]} // Use the background style and combine with flex
+      style={[styles.background, { flex: 10 }]} 
       blurRadius={2}
       resizeMode="cover" // Add resizeMode
     >
@@ -19,7 +19,7 @@ const LoadingScreen = () => {
         </View>
 
         {/* Helpful Text */}
-        <Text style={styles.text}>Loading today&apos;s predictions...</Text>
+        <Text style={styles.text}>Loading {screenName === "Predictions"? (`today's`) : (`past`)} predictions...</Text>
       </View>
     </ImageBackground>
   );

@@ -1,17 +1,16 @@
 import Popup from '@/components/Popup';
 import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 import 'expo-dev-client';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import { default as React, useEffect, useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 const Home = () => {
-
+  
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [lastPopupTime, setLastPopupTime] = useState(null);
-  const navigation = useNavigation();
+  const navigation = useRouter();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -21,6 +20,8 @@ const Home = () => {
 
     return () => clearTimeout(timeout);
   }, []);
+  
+  
 
   const handlePredictPress = () => {
     const now = Date.now();
@@ -29,7 +30,7 @@ const Home = () => {
       setLastPopupTime(now);
     } else {
       // Navigate to predictions if less than 3 minutes
-      navigation.navigate('Predictions');
+      navigation.push('/Predictions');
     }
   };
 

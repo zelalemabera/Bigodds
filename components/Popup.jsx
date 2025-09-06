@@ -1,33 +1,37 @@
 import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RewardedAd, RewardedAdEventType, TestIds } from 'react-native-google-mobile-ads';
 
-const PredictionPopup = ({ onClose }) => {
+const PredictionPopup = ({ onClose , isPopUpVisible}) => {
   const [showReward, setShowReward] = useState(false);
-  const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(false);
+  const navigation = useRouter();
 
   const handleWatchAd = async () => {
     try {
+      setIsLoading(true);
       const rewarded = RewardedAd.createForAdRequest(TestIds.REWARDED, {
         requestNonPersonalizedAdsOnly: true,
         keywords: ['sports', 'games','food','clothing'],
       });
 
       rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
+        setIsLoading(false);
         rewarded.show();
       });
 
       rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => {
         setShowReward(true);
-        navigation.navigate('Predictions');
+        navigation.push('Predictions');
       });
 
       rewarded.load();
 
     } catch (error) {
       console.log('Error showing rewarded ad:', error);
+      setIsLoading(false);
       // Handle error case
     }
   };
@@ -42,7 +46,7 @@ const PredictionPopup = ({ onClose }) => {
           <View style={styles.popup}>
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={onClose}
+              onPress={isPopUpVisible ? onClose : null}
             >
               <Text style={styles.closeButtonText}>×</Text>
             </TouchableOpacity>
@@ -58,9 +62,10 @@ const PredictionPopup = ({ onClose }) => {
                   style={styles.button}
                   onPress={handleWatchAd}
                   activeOpacity={0.8}
+                  disabled={isLoading}
                 >
-                  <FontAwesome name="play" size={24} color="white" />
-                  <Text style={styles.buttonText}>Watch Ad</Text>
+                  <FontAwesome name={isLoading ? "spinner" : "play"} size={24} color="white" />
+                  <Text style={styles.buttonText}>{isLoading ? 'Loading...' : 'Watch Ad'}</Text>
                 </TouchableOpacity>
               </>
             ) : (

@@ -10,7 +10,7 @@ import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-9846851270242418/8340629564';
 
 
-const PredictionsScreen = () => {
+const HistoryPage = () => {
   const [prediction, setPrediction] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -49,14 +49,15 @@ const PredictionsScreen = () => {
   }, []);
 
   return (
-    <>
+      <>
+      <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
       <ImageBackground
         source={require('@/assets/images/Bg.jpg')}
         style={{ flex: 1 }}
         blurRadius={2}
       >
         <View style={styles.headerContainer}>
-          <Text style={styles.header}>Today&apos;s Predictions</Text>
+          <Text style={styles.header}>Past Predictions</Text>
         </View>
 
         {isLoading ? (
@@ -76,12 +77,12 @@ const PredictionsScreen = () => {
                 <SoccerMatchPredictions
                   HomeTeam={Match.home_team}
                   League={Match.league}
-                  matchTime={Match.created_at}
+                  matchTime={new Date(Match.created_at).toLocaleTimeString()}
                   AwayTeam={Match.away_team}
                   HomePossesion={Match.Home_Possesion}
                   AwayPossesion={Match.Away_Possesion}
                   odds={Match.odds}
-                  Tip={Match.Tips}
+                  Tip={Match.tips}
                   status={Match.Mtch_Status}
                   HomeTeamScore={Match.Home_Team_Score}
                   AwayTeamScore={Match.Away_Team_Score}
@@ -91,7 +92,6 @@ const PredictionsScreen = () => {
             </View>
           </ScrollView>
         )}
-        <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
       </ImageBackground>
     </>
   )
@@ -165,4 +165,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PredictionsScreen;
+export default HistoryPage;

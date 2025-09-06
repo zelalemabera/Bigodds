@@ -1,4 +1,3 @@
-// lib/supabase.js
 import { createClient } from '@supabase/supabase-js';
 
 //Db credentials....
@@ -13,12 +12,3 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     detectSessionInUrl: false, // Prevents the client from parsing URLs for auth sessions
   },
 });
-
-// // Optional: Handle app state changes (foreground/background)
-// AppState.addEventListener('change', (state) => {
-//   if (state === 'active') {
-//     supabase.auth.startAutoRefresh(); // Keeps the client session fresh
-//   } else {
-//     supabase.auth.stopAutoRefresh();
-//   }
-// });
