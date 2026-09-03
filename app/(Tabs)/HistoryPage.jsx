@@ -5,6 +5,8 @@ import { ImageBackground } from 'expo-image'
 import React, { useEffect, useRef, useState } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
 
 
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-9846851270242418/8340629564';
@@ -13,6 +15,7 @@ const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-984685127024241
 const HistoryPage = () => {
   const [prediction, setPrediction] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const insets = useSafeAreaInsets();
 
   const bannerRef = useRef(null);
 
@@ -44,13 +47,13 @@ const HistoryPage = () => {
         setIsLoading(false);
       }
     };
-
+    
     fetchPredictions();
   }, []);
-
+  
   return (
-      <>
-      <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
+    <View style={{ flex: 1, paddingTop: insets.top}}>
+    <BannerAd ref={bannerRef} unitId={adUnitId} size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
       <ImageBackground
         source={require('@/assets/images/Bg.jpg')}
         style={{ flex: 1 }}
@@ -93,7 +96,7 @@ const HistoryPage = () => {
           </ScrollView>
         )}
       </ImageBackground>
-    </>
+    </View>
   )
 }
 
