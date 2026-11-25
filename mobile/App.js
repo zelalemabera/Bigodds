@@ -26,7 +26,7 @@ function useFeed(loader) {
     try {
       const { status, data } = await loader();
       setState({ loading: false, data, error: data.status === "error" ? data.error || "Something went wrong." : null });
-      if (status === 202 && data.status !== "error") timer.current = setTimeout(load, 6000);
+      if (status === 202 && data.status !== "error") timer.current = setTimeout(load, 60000);
     } catch {
       setState((s) => ({ ...s, loading: false, error: "Can't reach the Big Odds server. Check your internet connection." }));
       timer.current = setTimeout(load, 15000);
@@ -221,10 +221,11 @@ function TodayView({ feed, filter }) {
   const d = feed.data;
   if (feed.error) return <StateBox title="Something went wrong" text={feed.error} />;
   if (!d) return <StateBox title="Loading" text="Fetching today's tips." spin />;
-  if (d.status === "generating") return <><Notice /><StateBox title="Building today's tips" text="Claude is checking today's fixtures, form and odds. This usually takes a minute or two." spin /></>;
+  if (d.status === "generating") return <><Notice /><StateBox title="Today's tips are on their way" text="New tips are published every morning at about 6 AM UK time. Pull down to refresh." /></>;
   return (
     <>
       <View style={s.dayline}><Text style={s.dayTitle}>{fmtDate(d.date).toUpperCase()}</Text><Text style={s.dayMeta}>{d.picks.length} tips</Text></View>
+      {d.stale ? <StateBox title="Today's tips are on their way" text="New tips are published every morning at about 6 AM UK time. Below are the latest ones." /> : null}
       <Notice />
       {d.picks.length ? <PickList picks={d.picks} filter={filter} /> : <StateBox title="No games found today" text="Check back tomorrow." />}
     </>

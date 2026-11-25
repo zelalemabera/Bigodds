@@ -1,7 +1,8 @@
-// Where the Big Odds server lives (it holds the Claude API key, the app never does).
-// Set EXPO_PUBLIC_API_URL in eas.json (build) or .env (local). With no URL, the app shows demo data.
-export const API_URL = (process.env.EXPO_PUBLIC_API_URL || "").replace(/\/$/, "");
-export const DEMO = !API_URL || API_URL.includes("YOUR-SERVER") || process.env.EXPO_PUBLIC_DEMO === "1";
+// The app reads the daily tips from these two files, updated once a day by a scheduled Claude run.
+// (No API key or server is needed; the repo must be public for the app to read them.)
+export const DATA_URL = (process.env.EXPO_PUBLIC_DATA_URL || "https://raw.githubusercontent.com/zelalemabera/Bigodds/main/data").replace(/\/$/, "");
+// EXPO_PUBLIC_DEMO=1 shows built-in sample data instead (used for the web preview).
+export const DEMO = process.env.EXPO_PUBLIC_DEMO === "1";
 
 // AdMob unit IDs. These are Google's official TEST IDs. Before publishing, replace them with your own
 // IDs from admob.google.com (and the app IDs in app.json). Never click your own live ads.
