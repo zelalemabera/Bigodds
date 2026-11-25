@@ -1,66 +1,18 @@
 {
-  "name": "big-odds",
-  "main": "expo-router/entry",
+  "name": "big-odds-prediction-app",
   "version": "1.0.0",
+  "description": "Daily soccer and NBA tips powered by Claude",
+  "main": "server.js",
   "scripts": {
-    "start": "expo start --dev-client",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web",
-    "lint": "expo lint",
-    "postinstall": "patch-package"
+    "start": "node server.js",
+    "demo": "DEMO_MODE=1 node server.js"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@expo/vector-icons": "^15.0.2",
-    "@mui/icons-material": "^7.3.1",
-    "@mui/material": "^7.3.1",
-    "@react-native-async-storage/async-storage": "2.2.0",
-    "@react-navigation/bottom-tabs": "^7.3.10",
-    "@react-navigation/elements": "^2.3.8",
-    "@react-navigation/native": "^7.1.6",
-    "@supabase/supabase-js": "^2.56.1",
-    "expo": "^57.0.18",
-    "expo-blur": "~57.0.2",
-    "expo-build-properties": "~57.0.15",
-    "expo-constants": "^57.0.16",
-    "expo-dev-client": "^57.0.16",
-    "expo-font": "~57.0.2",
-    "expo-haptics": "~57.0.2",
-    "expo-image": "~57.0.3",
-    "expo-linear-gradient": "~57.0.1",
-    "expo-linking": "^57.0.8",
-    "expo-router": "~57.0.17",
-    "expo-splash-screen": "^57.0.8",
-    "expo-status-bar": "~57.0.1",
-    "expo-symbols": "~57.0.2",
-    "expo-system-ui": "~57.0.3",
-    "expo-web-browser": "~57.0.2",
-    "patch-package": "^8.0.0",
-    "php": "^1.1.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-native": "0.86.3",
-    "react-native-gesture-handler": "~2.32.0",
-    "react-native-google-mobile-ads": "^15.7.0",
-    "react-native-reanimated": "4.5.1",
-    "react-native-safe-area-context": "~5.7.0",
-    "react-native-screens": "~4.26.0",
-    "react-native-web": "^0.21.2",
-    "react-native-webview": "13.16.1",
-    "react-native-worklets": "0.10.1",
-    "supabase-cli": "^0.0.21"
+    "@anthropic-ai/sdk": "^1.14.0",
+    "express": "^5.3.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@react-native-community/cli": "^20.2.0",
-    "@types/react": "^19.2.0",
-    "ajv": "^8.8.2",
-    "eslint": "^9.25.0",
-    "eslint-config-expo": "~57.0.2",
-    "typescript": "~6.0.3"
-  },
-  "private": true
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
 }
