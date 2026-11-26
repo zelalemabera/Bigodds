@@ -54,7 +54,10 @@ function finish() {
 
   // 1) yesterday.json
   let y = { date: yesterday, none: true, picks: [], summary: { won: 0, lost: 0, void: 0, pending: 0, total: 0, win_rate: null }, vip: null };
-  if (prev && prev.date === yesterday) {
+  const keptYesterday = prev && prev.date === today ? read("yesterday.json") : null; // regenerating today: keep results
+  if (keptYesterday) {
+    y = keptYesterday;
+  } else if (prev && prev.date === yesterday) {
     const res = read("results-raw.json");
     const list = Array.isArray(res) ? res : res?.results || [];
     const byId = Object.fromEntries(list.map((r) => [r.id, r]));
