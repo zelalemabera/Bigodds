@@ -1,14 +1,488 @@
 {
-  "date": "2026-11-24",
-  "none": true,
-  "picks": [],
+  "date": "2026-11-25",
+  "graded_at": "2026-11-26T05:51:47.494Z",
+  "picks": [
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Sabah",
+      "away_team": "Barcelona",
+      "kickoff_local": "17:45",
+      "market": "1X2",
+      "pick": "Barcelona to win",
+      "odds": "1.25",
+      "confidence": 80,
+      "analysis": "Barcelona have far more quality in every position and Sabah are Champions League newcomers.",
+      "id": "s1",
+      "result": {
+        "status": "won",
+        "final_score": "1-4",
+        "note": "Barcelona won 4-1 away at Sabah."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Slavia Praha",
+      "away_team": "Villarreal",
+      "kickoff_local": "17:45",
+      "market": "Both teams to score",
+      "pick": "Yes",
+      "odds": "1.85",
+      "confidence": 58,
+      "analysis": "Slavia are dangerous at home in Prague and Villarreal tend to create plenty of chances away from home.",
+      "id": "s2",
+      "result": {
+        "status": "lost",
+        "final_score": "0-1",
+        "note": "Only Villarreal scored."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Inter Milan",
+      "away_team": "Stuttgart",
+      "kickoff_local": "20:00",
+      "market": "1X2",
+      "pick": "Inter to win",
+      "odds": "1.65",
+      "confidence": 66,
+      "analysis": "Inter are very strong at San Siro in Europe and should control a Stuttgart side that concedes on the road.",
+      "id": "s3",
+      "result": {
+        "status": "won",
+        "final_score": "2-0",
+        "note": "Inter beat Stuttgart 2-0."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Lille",
+      "away_team": "Bayern Munich",
+      "kickoff_local": "20:00",
+      "market": "Over/Under 2.5 goals",
+      "pick": "Over 2.5",
+      "odds": "1.55",
+      "confidence": 70,
+      "analysis": "Bayern's games are usually high scoring and Lille will push forward at home.",
+      "id": "s4",
+      "result": {
+        "status": "won",
+        "final_score": "2-1",
+        "note": "Three goals, over 2.5 landed."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "PSG",
+      "away_team": "Roma",
+      "kickoff_local": "20:00",
+      "market": "1X2",
+      "pick": "PSG to win",
+      "odds": "1.50",
+      "confidence": 70,
+      "analysis": "PSG are favourites at the Parc des Princes and Roma usually play cautiously away in Europe.",
+      "id": "s5",
+      "result": {
+        "status": "lost",
+        "final_score": "2-2",
+        "note": "Roma equalised with a late penalty."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Shakhtar Donetsk",
+      "away_team": "Fenerbahce",
+      "kickoff_local": "20:00",
+      "market": "Both teams to score",
+      "pick": "Yes",
+      "odds": "1.75",
+      "confidence": 57,
+      "analysis": "Two attacking sides that rarely keep clean sheets in Europe; goals at both ends look likely.",
+      "id": "s6",
+      "result": {
+        "status": "lost",
+        "final_score": "0-1",
+        "note": "Shakhtar failed to score."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Sporting CP",
+      "away_team": "Manchester United",
+      "kickoff_local": "20:00",
+      "market": "Over/Under 2.5 goals",
+      "pick": "Over 2.5",
+      "odds": "1.75",
+      "confidence": 60,
+      "analysis": "Sporting score freely in Lisbon and United's defence has been open in big away games.",
+      "id": "s7",
+      "result": {
+        "status": "won",
+        "final_score": "2-2",
+        "note": "Four goals in Lisbon."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Atletico Madrid",
+      "away_team": "Viking",
+      "kickoff_local": "20:00",
+      "market": "Handicap",
+      "pick": "Atletico -1.5",
+      "odds": "1.55",
+      "confidence": 70,
+      "analysis": "Atletico are huge favourites at home against Norwegian side Viking and should win by two or more.",
+      "id": "s8",
+      "result": {
+        "status": "won",
+        "final_score": "2-0",
+        "note": "Atletico won by two."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "UEFA Champions League",
+      "home_team": "Club Brugge",
+      "away_team": "Liverpool",
+      "kickoff_local": "20:00",
+      "market": "1X2",
+      "pick": "Liverpool to win",
+      "odds": "1.70",
+      "confidence": 62,
+      "analysis": "Liverpool have the stronger squad, though Brugge are tough to beat at home, so this is not a banker.",
+      "id": "s9",
+      "result": {
+        "status": "won",
+        "final_score": "0-3",
+        "note": "Liverpool won 3-0 in Bruges."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "EFL Championship",
+      "home_team": "Burnley",
+      "away_team": "Birmingham City",
+      "kickoff_local": "19:45",
+      "market": "Double Chance",
+      "pick": "Burnley or Draw",
+      "odds": "1.30",
+      "confidence": 72,
+      "analysis": "Burnley are solid at Turf Moor and the double chance covers a cagey draw.",
+      "id": "s10",
+      "result": {
+        "status": "lost",
+        "final_score": "0-2",
+        "note": "Birmingham won at Turf Moor."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "EFL Championship",
+      "home_team": "Bolton",
+      "away_team": "West Brom",
+      "kickoff_local": "19:45",
+      "market": "Over/Under 2.5 goals",
+      "pick": "Under 2.5",
+      "odds": "1.85",
+      "confidence": 55,
+      "analysis": "A midweek Championship game between two organised sides points to a low-scoring match.",
+      "id": "s11",
+      "result": {
+        "status": "lost",
+        "final_score": "1-3",
+        "note": "Four goals, under 2.5 failed."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Serie B",
+      "home_team": "Padova",
+      "away_team": "Sampdoria",
+      "kickoff_local": "19:00",
+      "market": "Over/Under 2.5 goals",
+      "pick": "Under 2.5",
+      "odds": "1.60",
+      "confidence": 60,
+      "analysis": "Serie B games are often tight and low scoring, especially midweek.",
+      "id": "s12",
+      "result": {
+        "status": "lost",
+        "final_score": "1-2",
+        "note": "Three goals, under 2.5 failed."
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Brasileirao Serie A",
+      "home_team": "Atletico Mineiro",
+      "away_team": "Corinthians",
+      "kickoff_local": "23:00",
+      "market": "Over/Under 2.5 goals",
+      "pick": "Under 2.5",
+      "odds": "1.65",
+      "confidence": 62,
+      "analysis": "Corinthians usually play tight away games and late-season Brazilian matches tend to be cagey.",
+      "id": "s13",
+      "result": {
+        "status": "won",
+        "final_score": "1-1",
+        "note": "Two goals, under 2.5 landed."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Philadelphia 76ers",
+      "away_team": "Miami Heat",
+      "kickoff_local": "22:00",
+      "market": "Total points",
+      "pick": "Under 237.5",
+      "odds": "1.90",
+      "confidence": 57,
+      "analysis": "Joel Embiid is doubtful and Giannis Antetokounmpo questionable, which should take points out of this game.",
+      "id": "n1",
+      "result": {
+        "status": "won",
+        "final_score": "111-104",
+        "note": "215 total points, under 237.5."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "New York Knicks",
+      "away_team": "Cleveland Cavaliers",
+      "kickoff_local": "00:30",
+      "market": "Spread",
+      "pick": "Knicks -5.5",
+      "odds": "1.91",
+      "confidence": 61,
+      "analysis": "Cleveland are without Evan Mobley, a big loss on defence and on the boards at Madison Square Garden.",
+      "id": "n2",
+      "result": {
+        "status": "won",
+        "final_score": "121-102",
+        "note": "Knicks won by 19."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Oklahoma City Thunder",
+      "away_team": "Minnesota Timberwolves",
+      "kickoff_local": "00:30",
+      "market": "Spread",
+      "pick": "Timberwolves +2.5",
+      "odds": "1.90",
+      "confidence": 55,
+      "analysis": "Edwards is out for Minnesota, but OKC are missing both Chet Holmgren and Jalen Williams, so the points are worth taking.",
+      "id": "n3",
+      "result": {
+        "status": "won",
+        "final_score": "106-113",
+        "note": "Timberwolves won outright."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "LA Clippers",
+      "kickoff_local": "01:00",
+      "market": "Spread",
+      "pick": "Grizzlies -6.5",
+      "odds": "1.91",
+      "confidence": 58,
+      "analysis": "The Clippers are without Bradley Beal and Memphis are strong at FedExForum.",
+      "id": "n4",
+      "result": {
+        "status": "won",
+        "final_score": "115-97",
+        "note": "Grizzlies won by 18."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Milwaukee Bucks",
+      "away_team": "Brooklyn Nets",
+      "kickoff_local": "01:00",
+      "market": "Total points",
+      "pick": "Over 232.5",
+      "odds": "1.90",
+      "confidence": 55,
+      "analysis": "Brooklyn's defence struggles and Milwaukee should score heavily at home.",
+      "id": "n5",
+      "result": {
+        "status": "lost",
+        "final_score": "97-104",
+        "note": "Only 201 points scored."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Houston Rockets",
+      "away_team": "Phoenix Suns",
+      "kickoff_local": "01:30",
+      "market": "Moneyline",
+      "pick": "Rockets",
+      "odds": "1.25",
+      "confidence": 78,
+      "analysis": "Houston are clear home favourites and Phoenix are without centre Mark Williams.",
+      "id": "n6",
+      "result": {
+        "status": "won",
+        "final_score": "116-104",
+        "note": "Rockets beat the Suns."
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Portland Trail Blazers",
+      "away_team": "San Antonio Spurs",
+      "kickoff_local": "03:00",
+      "market": "Spread",
+      "pick": "Spurs -4.5",
+      "odds": "1.91",
+      "confidence": 56,
+      "analysis": "Portland are missing Ja Morant, Shaedon Sharpe and others; check Wembanyama's status before tip-off.",
+      "id": "n7",
+      "result": {
+        "status": "lost",
+        "final_score": "116-111",
+        "note": "Blazers beat the Spurs."
+      }
+    }
+  ],
   "summary": {
-    "won": 0,
-    "lost": 0,
+    "won": 12,
+    "lost": 8,
     "void": 0,
     "pending": 0,
-    "total": 0,
-    "win_rate": null
+    "total": 20,
+    "win_rate": 60
   },
-  "vip": null
+  "vip": {
+    "legs": [
+      {
+        "sport": "soccer",
+        "league": "UEFA Champions League",
+        "home_team": "Sabah",
+        "away_team": "Barcelona",
+        "kickoff_local": "17:45",
+        "market": "1X2",
+        "pick": "Barcelona to win",
+        "odds": "1.25",
+        "confidence": 80,
+        "analysis": "A big gap in quality between the two teams.",
+        "id": "v1",
+        "result": {
+          "status": "won",
+          "final_score": "1-4",
+          "note": "Barcelona won."
+        }
+      },
+      {
+        "sport": "soccer",
+        "league": "UEFA Champions League",
+        "home_team": "Atletico Madrid",
+        "away_team": "Viking",
+        "kickoff_local": "20:00",
+        "market": "1X2",
+        "pick": "Atletico to win",
+        "odds": "1.18",
+        "confidence": 86,
+        "analysis": "Atletico rarely slip at home against smaller European sides.",
+        "id": "v2",
+        "result": {
+          "status": "won",
+          "final_score": "2-0",
+          "note": "Atletico won."
+        }
+      },
+      {
+        "sport": "soccer",
+        "league": "UEFA Champions League",
+        "home_team": "PSG",
+        "away_team": "Roma",
+        "kickoff_local": "20:00",
+        "market": "1X2",
+        "pick": "PSG to win",
+        "odds": "1.50",
+        "confidence": 70,
+        "analysis": "PSG are strong favourites at home.",
+        "id": "v3",
+        "result": {
+          "status": "lost",
+          "final_score": "2-2",
+          "note": "Draw, PSG did not win."
+        }
+      },
+      {
+        "sport": "soccer",
+        "league": "EFL Championship",
+        "home_team": "Burnley",
+        "away_team": "Birmingham City",
+        "kickoff_local": "19:45",
+        "market": "Double Chance",
+        "pick": "Burnley or Draw",
+        "odds": "1.30",
+        "confidence": 72,
+        "analysis": "Burnley are hard to beat at home.",
+        "id": "v4",
+        "result": {
+          "status": "lost",
+          "final_score": "0-2",
+          "note": "Burnley lost at home."
+        }
+      },
+      {
+        "sport": "nba",
+        "league": "NBA",
+        "home_team": "New York Knicks",
+        "away_team": "Cleveland Cavaliers",
+        "kickoff_local": "00:30",
+        "market": "Moneyline",
+        "pick": "Knicks",
+        "odds": "1.45",
+        "confidence": 68,
+        "analysis": "Cleveland are without Evan Mobley.",
+        "id": "v5",
+        "result": {
+          "status": "won",
+          "final_score": "121-102",
+          "note": "Knicks won."
+        }
+      },
+      {
+        "sport": "nba",
+        "league": "NBA",
+        "home_team": "Houston Rockets",
+        "away_team": "Phoenix Suns",
+        "kickoff_local": "01:30",
+        "market": "Moneyline",
+        "pick": "Rockets",
+        "odds": "1.25",
+        "confidence": 78,
+        "analysis": "Houston at home against a short-handed Phoenix.",
+        "id": "v6",
+        "result": {
+          "status": "won",
+          "final_score": "116-104",
+          "note": "Rockets won."
+        }
+      }
+    ],
+    "total_odds": 5.21,
+    "status": "lost"
+  }
 }
