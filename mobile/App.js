@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { ActivityIndicator, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Linking, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
@@ -307,6 +307,12 @@ function Footer() {
         <Text style={{ color: C.ink, fontFamily: F.bodyBold }}>Predictions are not guarantees.</Text> Tips are opinions based on form and public
         information and can be wrong. Never bet more than you can afford to lose. 18+ only. If betting stops being fun, contact a
         gambling support service in your country.
+      </Text>
+      <Text
+        style={[s.footerText, { color: C.accent, marginTop: 6, textDecorationLine: "underline" }]}
+        onPress={() => Linking.openURL("https://github.com/zelalemabera/Bigodds/blob/main/PRIVACY.md")}
+      >
+        Privacy policy
       </Text>
     </View>
   );
