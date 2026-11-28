@@ -1,344 +1,434 @@
 {
-  "date": "2026-11-26",
-  "graded_at": "2026-11-27T05:52:20.365Z",
+  "date": "2026-11-27",
+  "graded_at": "2026-11-28T05:52:19.686Z",
   "picks": [
     {
       "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Lyon",
-      "away_team": "Lillestrom",
-      "kickoff_local": "20:00",
-      "market": "At least one team will score",
-      "pick": "Over (1.5) - Yes",
-      "odds": "1.22",
-      "confidence": 82,
-      "analysis": "Lyon are heavy favourites at home and only need to score twice themselves for this to land.",
+      "league": "A-League",
+      "home_team": "Macarthur",
+      "away_team": "Melbourne City",
+      "kickoff_local": "08:40",
+      "market": "Total",
+      "pick": "Over (1.5)",
+      "odds": "1.25",
+      "confidence": 72,
+      "analysis": "Recent meetings have been open, including a 6-2 Macarthur win in January, and City are slight favourites away. Two goals is a low bar.",
       "id": "s1",
-      "result": {
-        "status": "lost",
-        "final_score": "0-0",
-        "note": "Goalless draw, neither team scored twice."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Juventus",
-      "away_team": "Omonia Nicosia",
-      "kickoff_local": "20:00",
-      "market": "Home result + total",
-      "pick": "1X And TO (1.5)",
-      "odds": "1.30",
-      "confidence": 78,
-      "analysis": "Juventus should avoid defeat at home and a game with two or more goals is very likely.",
-      "id": "s2",
-      "result": {
-        "status": "won",
-        "final_score": "4-1",
-        "note": "Juventus won with five goals in the game."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Olympiakos",
-      "away_team": "AC Milan",
-      "kickoff_local": "17:45",
-      "market": "Total",
-      "pick": "Over (1.5)",
-      "odds": "1.30",
-      "confidence": 72,
-      "analysis": "Two attacking sides in a big European night; two goals is a low bar.",
-      "id": "s3",
-      "result": {
-        "status": "won",
-        "final_score": "2-4",
-        "note": "Six goals as Milan came from behind."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Crystal Palace",
-      "away_team": "Real Sociedad",
-      "kickoff_local": "20:00",
-      "market": "Total",
-      "pick": "Under (3.5)",
-      "odds": "1.30",
-      "confidence": 70,
-      "analysis": "Evenly matched teams who are both organised; a high-scoring game is unlikely.",
-      "id": "s4",
-      "result": {
-        "status": "won",
-        "final_score": "2-1",
-        "note": "Three goals, under 3.5."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Dinamo Zagreb",
-      "away_team": "Bayer Leverkusen",
-      "kickoff_local": "17:45",
-      "market": "Away result + total",
-      "pick": "2X And TO (1.5)",
-      "odds": "1.50",
-      "confidence": 66,
-      "analysis": "Leverkusen are the stronger side and Zagreb games at home usually see goals.",
-      "id": "s5",
-      "result": {
-        "status": "won",
-        "final_score": "0-2",
-        "note": "Leverkusen won and two goals scored."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Celta Vigo",
-      "away_team": "Bournemouth",
-      "kickoff_local": "17:45",
-      "market": "Total",
-      "pick": "Over (1.5)",
-      "odds": "1.28",
-      "confidence": 72,
-      "analysis": "Both teams play open, attacking football and concede regularly.",
-      "id": "s6",
-      "result": {
-        "status": "won",
-        "final_score": "1-2",
-        "note": "Three goals as Bournemouth won."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Torreense",
-      "away_team": "Celtic",
-      "kickoff_local": "20:00",
-      "market": "Away result + total",
-      "pick": "2X And TO (1.5)",
-      "odds": "1.55",
-      "confidence": 62,
-      "analysis": "Celtic have more quality and should avoid defeat in a game with at least two goals.",
-      "id": "s7",
-      "result": {
-        "status": "won",
-        "final_score": "1-2",
-        "note": "Celtic won late with three goals in the game."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Marseille",
-      "away_team": "Levski Sofia",
-      "kickoff_local": "17:45",
-      "market": "Home result + total",
-      "pick": "1X And TO (1.5)",
-      "odds": "1.25",
-      "confidence": 78,
-      "analysis": "Marseille are big home favourites and the Velodrome games tend to have goals.",
-      "id": "s8",
-      "result": {
-        "status": "lost",
-        "final_score": "1-0",
-        "note": "Marseille won but only one goal was scored."
-      }
-    },
-    {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Red Bull Salzburg",
-      "away_team": "Ararat-Armenia",
-      "kickoff_local": "17:45",
-      "market": "At least one team will score",
-      "pick": "Over (1.5) - Yes",
-      "odds": "1.25",
-      "confidence": 78,
-      "analysis": "Salzburg score heavily at home against weaker opponents; two goals for them is enough.",
-      "id": "s9",
       "result": {
         "status": "won",
         "final_score": "2-0",
-        "note": "Salzburg scored twice."
+        "note": "Macarthur won 2-0, two goals cleared Over 1.5"
       }
     },
     {
       "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "1899 Hoffenheim",
-      "away_team": "Sturm Graz",
+      "league": "Saudi Pro League",
+      "home_team": "Al-Ittihad",
+      "away_team": "NEOM",
+      "kickoff_local": "17:30",
+      "market": "Total",
+      "pick": "Under (3.5)",
+      "odds": "1.43",
+      "confidence": 68,
+      "analysis": "Fourth hosts fifth and NEOM concede only about a goal a game. A tight match with three goals or fewer is the likeliest outcome.",
+      "id": "s2",
+      "result": {
+        "status": "won",
+        "final_score": "1-0",
+        "note": "Al-Ittihad edged it 1-0, only one goal"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Eredivisie",
+      "home_team": "Groningen",
+      "away_team": "Willem II",
+      "kickoff_local": "19:00",
+      "market": "Home result + total",
+      "pick": "W1 And TO (1.5)",
+      "odds": "1.62",
+      "confidence": 66,
+      "analysis": "Willem II are bottom without a win and have conceded 19 in their last five. Groningen are clear favourites at home.",
+      "id": "s3",
+      "result": {
+        "status": "lost",
+        "final_score": "1-1",
+        "note": "Draw, so no home win"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Bundesliga",
+      "home_team": "Werder Bremen",
+      "away_team": "Borussia Monchengladbach",
+      "kickoff_local": "19:30",
+      "market": "Home result + total",
+      "pick": "1X And TO (1.5)",
+      "odds": "1.38",
+      "confidence": 72,
+      "analysis": "Bremen are sixth and unbeaten in their last five at home (14 goals scored), while bottom side Gladbach have lost four of five away.",
+      "id": "s4",
+      "result": {
+        "status": "won",
+        "final_score": "3-3",
+        "note": "Bremen avoided defeat in a six-goal draw"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Serie A",
+      "home_team": "Venezia",
+      "away_team": "Bologna",
+      "kickoff_local": "19:45",
+      "market": "Away result + total",
+      "pick": "2X And TU (3.5)",
+      "odds": "1.60",
+      "confidence": 64,
+      "analysis": "Bologna have won four of five and Venezia are bottom having scored only twice in five games. Bologna should avoid defeat in a modest-scoring match.",
+      "id": "s5",
+      "result": {
+        "status": "won",
+        "final_score": "0-0",
+        "note": "Goalless draw: Bologna did not lose and under 3.5"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Ligue 1",
+      "home_team": "Brest",
+      "away_team": "Paris FC",
+      "kickoff_local": "19:45",
+      "market": "Total",
+      "pick": "Over (1.5)",
+      "odds": "1.29",
+      "confidence": 70,
+      "analysis": "Second-placed Paris FC have scored 13 in their last five and sixth-placed Brest are in good form. Both sides should create chances.",
+      "id": "s6",
+      "result": {
+        "status": "lost",
+        "final_score": "1-0",
+        "note": "Brest won 1-0, only one goal"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Belgian Pro League",
+      "home_team": "OH Leuven",
+      "away_team": "Kortrijk",
+      "kickoff_local": "19:45",
+      "market": "Home result + total",
+      "pick": "1X And TO (1.5)",
+      "odds": "1.52",
+      "confidence": 68,
+      "analysis": "Leuven have won three of their last five, while bottom side Kortrijk have lost four of five and scored only twice.",
+      "id": "s7",
+      "result": {
+        "status": "won",
+        "final_score": "2-2",
+        "note": "Leuven drew 2-2, four goals"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Premier League",
+      "home_team": "Nottingham Forest",
+      "away_team": "Chelsea",
+      "kickoff_local": "20:00",
+      "market": "Total",
+      "pick": "Under (3.5)",
+      "odds": "1.43",
+      "confidence": 68,
+      "analysis": "Both teams have scored just four goals in their last five games and Chelsea are missing Joao Pedro and Reece James.",
+      "id": "s8",
+      "result": {
+        "status": "lost",
+        "final_score": "3-2",
+        "note": "Forest won 3-2, five goals went over 3.5"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "La Liga",
+      "home_team": "Levante",
+      "away_team": "Racing Santander",
       "kickoff_local": "20:00",
       "market": "Home result + total",
       "pick": "1X And TO (1.5)",
-      "odds": "1.40",
-      "confidence": 68,
-      "analysis": "Hoffenheim are stronger at home and their matches rarely finish with fewer than two goals.",
+      "odds": "1.45",
+      "confidence": 64,
+      "analysis": "Bookmakers make Levante favourites at home and Racing's away games average over four goals (6 scored, 15 conceded in five).",
+      "id": "s9",
+      "result": {
+        "status": "lost",
+        "final_score": "1-3",
+        "note": "Racing won 3-1 away"
+      }
+    },
+    {
+      "sport": "soccer",
+      "league": "Primeira Liga",
+      "home_team": "Maritimo",
+      "away_team": "Nacional",
+      "kickoff_local": "20:15",
+      "market": "Total",
+      "pick": "Under (3.5)",
+      "odds": "1.28",
+      "confidence": 72,
+      "analysis": "Two struggling attacks: Maritimo have three goals and Nacional four in their last five games. A low-scoring Madeira derby is expected.",
       "id": "s10",
       "result": {
         "status": "won",
-        "final_score": "3-1",
-        "note": "Hoffenheim won with four goals."
+        "final_score": "1-2",
+        "note": "Nacional won 2-1, three goals stayed under 3.5"
       }
     },
     {
-      "sport": "soccer",
-      "league": "UEFA Europa League",
-      "home_team": "Sunderland",
-      "away_team": "Jagiellonia",
-      "kickoff_local": "20:00",
-      "market": "Home result + total",
-      "pick": "1X And TU (3.5)",
-      "odds": "1.65",
-      "confidence": 60,
-      "analysis": "Sunderland are solid at home and their games are usually tight, so no loss and three goals or fewer.",
-      "id": "s11",
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "New York Knicks",
+      "away_team": "Miami Heat",
+      "kickoff_local": "00:00",
+      "market": "Moneyline",
+      "pick": "New York Knicks",
+      "odds": "1.59",
+      "confidence": 64,
+      "analysis": "The Knicks have won six straight and are 7-3 at home, while the Heat are 1-7 against the spread on the road.",
+      "id": "n1",
       "result": {
-        "status": "won",
-        "final_score": "1-1",
-        "note": "Sunderland avoided defeat in a two-goal game."
+        "status": "lost",
+        "final_score": "105-108",
+        "note": "Heat won 108-105"
       }
     },
     {
-      "sport": "soccer",
-      "league": "UEFA Conference League",
-      "home_team": "Brighton",
-      "away_team": "Universitatea Craiova",
-      "kickoff_local": "17:45",
-      "market": "Home result + total",
-      "pick": "1X And TO (1.5)",
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Toronto Raptors",
+      "away_team": "Brooklyn Nets",
+      "kickoff_local": "00:30",
+      "market": "Moneyline",
+      "pick": "Toronto Raptors",
       "odds": "1.28",
-      "confidence": 76,
-      "analysis": "Brighton are clear favourites at home and create plenty of chances.",
-      "id": "s12",
+      "confidence": 70,
+      "analysis": "Projections give Toronto about a 78% chance at home against a weak Nets side.",
+      "id": "n2",
       "result": {
         "status": "won",
-        "final_score": "4-0",
-        "note": "Brighton won 4-0."
+        "final_score": "124-100",
+        "note": "Raptors won by 24"
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Detroit Pistons",
+      "away_team": "Milwaukee Bucks",
+      "kickoff_local": "00:30",
+      "market": "Moneyline",
+      "pick": "Detroit Pistons",
+      "odds": "1.27",
+      "confidence": 70,
+      "analysis": "Detroit are rated around 79% to win at home, with Giannis Antetokounmpo nursing a groin issue.",
+      "id": "n3",
+      "result": {
+        "status": "won",
+        "final_score": "113-98",
+        "note": "Pistons won by 15"
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Boston Celtics",
+      "away_team": "Atlanta Hawks",
+      "kickoff_local": "01:00",
+      "market": "Moneyline",
+      "pick": "Boston Celtics",
+      "odds": "1.28",
+      "confidence": 72,
+      "analysis": "Boston are strong home favourites, with markets pricing them at about 78% and a 9.5-point spread.",
+      "id": "n4",
+      "result": {
+        "status": "lost",
+        "final_score": "86-87",
+        "note": "Hawks won by one point"
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Phoenix Suns",
+      "away_team": "Dallas Mavericks",
+      "kickoff_local": "02:00",
+      "market": "Moneyline",
+      "pick": "Phoenix Suns",
+      "odds": "1.94",
+      "confidence": 55,
+      "analysis": "A close NBA Cup game; models lean to Phoenix at home (about 56%), with Dallas missing Dereck Lively II.",
+      "id": "n5",
+      "result": {
+        "status": "lost",
+        "final_score": "109-113",
+        "note": "Mavericks won 113-109"
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "San Antonio Spurs",
+      "away_team": "Los Angeles Lakers",
+      "kickoff_local": "02:30",
+      "market": "Moneyline",
+      "pick": "San Antonio Spurs",
+      "odds": "1.50",
+      "confidence": 62,
+      "analysis": "The Spurs are 5.5-point home favourites and Austin Reaves has been battling a heel bruise for the Lakers.",
+      "id": "n6",
+      "result": {
+        "status": "won",
+        "final_score": "99-96",
+        "note": "Spurs came back to win 99-96"
+      }
+    },
+    {
+      "sport": "nba",
+      "league": "NBA",
+      "home_team": "Portland Trail Blazers",
+      "away_team": "Golden State Warriors",
+      "kickoff_local": "02:30",
+      "market": "Moneyline",
+      "pick": "Portland Trail Blazers",
+      "odds": "1.34",
+      "confidence": 70,
+      "analysis": "Golden State are without Stephen Curry, Jimmy Butler and Moses Moody, and models give Portland about a 72% chance at home.",
+      "id": "n7",
+      "result": {
+        "status": "won",
+        "final_score": "116-94",
+        "note": "Blazers won by 22"
       }
     }
   ],
   "summary": {
     "won": 10,
-    "lost": 2,
+    "lost": 7,
     "void": 0,
     "pending": 0,
-    "total": 12,
-    "win_rate": 83
+    "total": 17,
+    "win_rate": 59
   },
   "vip": {
     "legs": [
       {
         "sport": "soccer",
-        "league": "UEFA Europa League",
-        "home_team": "Lyon",
-        "away_team": "Lillestrom",
-        "kickoff_local": "20:00",
-        "market": "At least one team will score",
-        "pick": "Over (1.5) - Yes",
-        "odds": "1.22",
-        "confidence": 82,
-        "analysis": "Lyon only need two goals themselves.",
+        "league": "Bundesliga",
+        "home_team": "Werder Bremen",
+        "away_team": "Borussia Monchengladbach",
+        "kickoff_local": "19:30",
+        "market": "Home result + total",
+        "pick": "1X And TO (1.5)",
+        "odds": "1.38",
+        "confidence": 72,
+        "analysis": "Bremen are sixth and unbeaten in their last five at home (14 goals scored), while bottom side Gladbach have lost four of five away.",
         "id": "v1",
         "result": {
-          "status": "lost",
-          "final_score": "0-0",
-          "note": "Goalless draw."
+          "status": "won",
+          "final_score": "3-3",
+          "note": "Bremen avoided defeat, six goals"
         }
       },
       {
         "sport": "soccer",
-        "league": "UEFA Europa League",
-        "home_team": "Marseille",
-        "away_team": "Levski Sofia",
-        "kickoff_local": "17:45",
+        "league": "Primeira Liga",
+        "home_team": "Maritimo",
+        "away_team": "Nacional",
+        "kickoff_local": "20:15",
+        "market": "Total",
+        "pick": "Under (3.5)",
+        "odds": "1.28",
+        "confidence": 72,
+        "analysis": "Two struggling attacks: Maritimo have three goals and Nacional four in their last five games. A low-scoring Madeira derby is expected.",
+        "id": "v2",
+        "result": {
+          "status": "won",
+          "final_score": "1-2",
+          "note": "Three goals, under 3.5"
+        }
+      },
+      {
+        "sport": "soccer",
+        "league": "Eredivisie",
+        "home_team": "Groningen",
+        "away_team": "Willem II",
+        "kickoff_local": "19:00",
         "market": "Home result + total",
         "pick": "1X And TO (1.5)",
         "odds": "1.25",
-        "confidence": 78,
-        "analysis": "Marseille big favourites at home.",
-        "id": "v2",
-        "result": {
-          "status": "lost",
-          "final_score": "1-0",
-          "note": "Only one goal scored."
-        }
-      },
-      {
-        "sport": "soccer",
-        "league": "UEFA Conference League",
-        "home_team": "Brighton",
-        "away_team": "Universitatea Craiova",
-        "kickoff_local": "17:45",
-        "market": "Home result + total",
-        "pick": "1X And TO (1.5)",
-        "odds": "1.28",
-        "confidence": 76,
-        "analysis": "Brighton strong at home.",
+        "confidence": 66,
+        "analysis": "Groningen avoid defeat at home to the bottom side and the game has at least two goals.",
         "id": "v3",
         "result": {
           "status": "won",
-          "final_score": "4-0",
-          "note": "Brighton won 4-0."
+          "final_score": "1-1",
+          "note": "Groningen drew, two goals"
         }
       },
       {
         "sport": "soccer",
-        "league": "UEFA Europa League",
-        "home_team": "Juventus",
-        "away_team": "Omonia Nicosia",
+        "league": "Premier League",
+        "home_team": "Nottingham Forest",
+        "away_team": "Chelsea",
         "kickoff_local": "20:00",
-        "market": "Home result + total",
-        "pick": "1X And TO (1.5)",
-        "odds": "1.30",
-        "confidence": 78,
-        "analysis": "Juventus should not lose at home.",
+        "market": "Total",
+        "pick": "Under (3.5)",
+        "odds": "1.43",
+        "confidence": 68,
+        "analysis": "Both teams have scored just four goals in their last five games and Chelsea are missing Joao Pedro and Reece James.",
         "id": "v4",
         "result": {
-          "status": "won",
-          "final_score": "4-1",
-          "note": "Juventus won 4-1."
+          "status": "lost",
+          "final_score": "3-2",
+          "note": "Five goals went over 3.5"
         }
       },
       {
-        "sport": "soccer",
-        "league": "UEFA Europa League",
-        "home_team": "Red Bull Salzburg",
-        "away_team": "Ararat-Armenia",
-        "kickoff_local": "17:45",
-        "market": "At least one team will score",
-        "pick": "Over (1.5) - Yes",
-        "odds": "1.25",
-        "confidence": 78,
-        "analysis": "Salzburg score freely at home.",
+        "sport": "nba",
+        "league": "NBA",
+        "home_team": "Boston Celtics",
+        "away_team": "Atlanta Hawks",
+        "kickoff_local": "01:00",
+        "market": "Moneyline",
+        "pick": "Boston Celtics",
+        "odds": "1.28",
+        "confidence": 72,
+        "analysis": "Boston are strong home favourites, with markets pricing them at about 78% and a 9.5-point spread.",
         "id": "v5",
         "result": {
-          "status": "won",
-          "final_score": "2-0",
-          "note": "Salzburg scored twice."
+          "status": "lost",
+          "final_score": "86-87",
+          "note": "Hawks won by one point"
         }
       },
       {
-        "sport": "soccer",
-        "league": "UEFA Europa League",
-        "home_team": "Dinamo Zagreb",
-        "away_team": "Bayer Leverkusen",
-        "kickoff_local": "17:45",
-        "market": "Away result + total",
-        "pick": "2X And TO (1.5)",
-        "odds": "1.50",
-        "confidence": 66,
-        "analysis": "Leverkusen the stronger side.",
+        "sport": "nba",
+        "league": "NBA",
+        "home_team": "Portland Trail Blazers",
+        "away_team": "Golden State Warriors",
+        "kickoff_local": "02:30",
+        "market": "Moneyline",
+        "pick": "Portland Trail Blazers",
+        "odds": "1.34",
+        "confidence": 70,
+        "analysis": "Golden State are without Stephen Curry, Jimmy Butler and Moses Moody, and models give Portland about a 72% chance at home.",
         "id": "v6",
         "result": {
           "status": "won",
-          "final_score": "0-2",
-          "note": "Leverkusen won 2-0."
+          "final_score": "116-94",
+          "note": "Blazers won by 22"
         }
       }
     ],
-    "total_odds": 4.76,
+    "total_odds": 5.42,
     "status": "lost"
   }
 }
